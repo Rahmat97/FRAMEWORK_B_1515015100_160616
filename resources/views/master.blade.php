@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>@yield('page_title','Halaman Awal') | Laboratorium Pemrograman Framework</title>
+	<title>@yield('page_title','Halaman Awal') | Laboratorium Pemrograman FW</title>
 	<link rel="stylesheet" type="text/css" href="{{asset('component/bootstrap/dist/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('component/font-awesome/css/font-awesome.min.css')}}">
 
@@ -80,7 +80,7 @@
 		<nav class="navbar navbar-default navbar-fixed-bottom">
 		<footer class="container">
 			<!-- Please dont delete this -->
-			created by <span><i class="fa fa-facebook" style="color:#1da1f2"></i> @rahmathidayat</span></a>
+			created by <a href="https://www.facebook.com/rahmat.hidayat?ref=bookmarks"><span><i class="fa fa-facebook" style="color:#1da1f2"></i> @rahmathidayat/span></a>
 			<!--/ Please dont delete this -->
 		</footer>	
 		</nav>
