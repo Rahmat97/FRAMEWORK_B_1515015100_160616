@@ -19,8 +19,8 @@ class Jadwal_matakuliahController extends Controller
 
     public function awal()
     {
-    	$semuaJadwal_matakuliah = Jadwal_matakuliah::all();
-        return view('jadwal_matakuliah.awal',compact('semuaJadwal_matakuliah'));
+    	$semuaJadwal_matakuliah = jadwal_matakuliah::all();
+        return view('jadwal_matakuliah.awal',compact('semuaJadwalMatkul'));
     }
 
 	public function tambah()
@@ -28,7 +28,7 @@ class Jadwal_matakuliahController extends Controller
 		$mahasiswa = new Mahasiswa;
 		$ruangan = new Ruangan;
 		$dosen_matakuliah = new Dosen_matakuliah;
-		return view('jadwal_matakuliah.tambah',compact('mahasiswa','ruangan','dosen_matakuliah'));
+		return view('jadwal_matakuliah.tambah',compact('mahasiswa','ruangan','dosenMatakuliah'));
 	}
 
 
@@ -52,10 +52,10 @@ class Jadwal_matakuliahController extends Controller
 
     public function edit($id)
     {
-        $jadwal_matakuliah = Jadwal_matakuliah::find($id);
+        $jadwal_matakuliah = jadwal_matakuliah::find($id);
         $mahasiswa = new Mahasiswa;
         $ruangan = new Ruangan;
-        $dosen_matakuliah = new Dosen_matakuliah;
+        $dosen_matakuliah = new dosen_matakuliah;
         return view('jadwal_matakuliah.edit',compact('mahasiswa','ruangan','dosen_matakuliah','jadwal_matakuliah'));
     }
 
@@ -63,7 +63,7 @@ class Jadwal_matakuliahController extends Controller
     public function update($id, Request $input)
     {
 
-    	$jadwal_matakuliah = Jadwal_matakuliah::find($id);
+    	$jadwal_matakuliah = jadwal_matakuliah::find($id);
     	$jadwal_matakuliah->fill($input->only('ruangan_id','dosen_matakuliah_id','mahasiswa_id'));
 
    		 if($jadwal_matakuliah->save()) $this->informasi = 'Jadwal Mahasiswa berhasil diperbaharui';
@@ -74,7 +74,7 @@ class Jadwal_matakuliahController extends Controller
 
 	public function hapus($id, Request $input)
     {
-        $jadwal_matakuliah = Jadwal_matakuliah::find($id);
+        $jadwal_matakuliah = jadwal_matakuliah::find($id);
 
             if($jadwal_matakuliah->delete()) $this->informasi = 'Jadwal Mahasiswa berhasil dihapus';
             return redirect('jadwal_matakuliah')-> with(['informasi'=>$this->informasi]);
